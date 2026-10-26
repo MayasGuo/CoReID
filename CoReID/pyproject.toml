@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coreid-eccdna"
+version = "0.1.0"
+description = "Long-read eccDNA detection and multi-sample integration"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = [
+    "mappy",
+    "numpy",
+    "pandas",
+    "pyccs",
+    "pyfaidx",
+    "pysam",
+]
+
+[project.optional-dependencies]
+dev = [
+    "build",
+    "pytest",
+]
+
+[project.scripts]
+coreid = "coreid.main:main"
+coreid-merge = "coreid.merge_eccdna:main"
+
+[tool.setuptools]
+packages = ["coreid"]
+include-package-data = false
+
+[tool.setuptools.package-dir]
+coreid = "."
